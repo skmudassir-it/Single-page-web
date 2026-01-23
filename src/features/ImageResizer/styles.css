@@ -2,37 +2,44 @@
 .resizer-app {
   display: flex;
   height: calc(100vh - 80px);
-  /* Subtract header usually? Or handle in layout */
   overflow: hidden;
   background: var(--bg-card);
 }
 
 .left-panel {
-  width: 280px;
+  width: 250px;
+  /* Reduced from 280px */
   border-right: 1px solid var(--border);
   padding: 20px;
   overflow-y: auto;
   background: var(--bg-dark);
+  flex-shrink: 0;
+  /* Prevent shrinking */
 }
 
 .center-panel {
   flex: 1;
+  /* Automatically takes remaining space */
   position: relative;
   background: #111;
-  /* Dark bg for image editing context usually better */
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 0;
+  /* Important for flex child to shrink properly */
 }
 
 .right-panel {
-  width: 300px;
+  width: 280px;
+  /* Reduced from 300px */
   border-left: 1px solid var(--border);
   padding: 20px;
   background: var(--bg-dark);
   display: flex;
   flex-direction: column;
   gap: 30px;
+  flex-shrink: 0;
+  /* Prevent shrinking */
 }
 
 /* Preset Selector */
@@ -125,7 +132,6 @@
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 10px;
-  /* If vertical list preferred */
   flex-direction: column;
   max-height: 300px;
 }
@@ -273,6 +279,8 @@
   }
 
   .center-panel {
-    height: 500px;
+    height: 60vh;
+    /* Increased fixed height for mobile */
+    min-height: 400px;
   }
 }

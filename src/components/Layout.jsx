@@ -31,17 +31,17 @@ function Layout() {
                             <span>Slug Generator</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/hashtags" className={`nav-item ${location.pathname === '/hashtags' ? 'active' : ''}`}>
+                            <span className="icon">#️⃣</span>
+                            <span>Hashtag Optimizer</span>
+                        </Link>
+                    </li>
                     {/* Future apps placeholders */}
                     <li>
                         <div className="nav-item disabled" title="Coming Soon">
                             <span className="icon">📝</span>
                             <span>Captions</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="nav-item disabled" title="Coming Soon">
-                            <span className="icon">#️⃣</span>
-                            <span>Hashtags</span>
                         </div>
                     </li>
                 </ul>

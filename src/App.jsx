@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import LandingPage from './pages/LandingPage'
 import ImageResizer from './features/ImageResizer'
 import SlugGenerator from './features/SlugGenerator'
+import HashtagOptimizer from './features/HashtagOptimizer'
 import './App.css'
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route index element={<LandingPage />} />
         <Route path="resizer" element={<ImageResizer />} />
         <Route path="slugs" element={<SlugGenerator />} />
+        <Route path="hashtags" element={<HashtagOptimizer />} />
         {/* Fallback route or 404 can go here */}
         <Route path="*" element={<LandingPage />} />
       </Route>
