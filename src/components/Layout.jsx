@@ -73,12 +73,13 @@ function Layout() {
                             <span className="icon">🗄️</span>
                             <span>Assets</span>
                         </Link>
-                        <li>
-                            <Link to="/reports" className={`nav-item ${location.pathname === '/reports' ? 'active' : ''}`}>
-                                <span className="icon">📈</span>
-                                <span>Reports</span>
-                            </Link>
-                        </li>
+                    </li>
+                    <li>
+                        <Link to="/reports" className={`nav-item ${location.pathname === '/reports' ? 'active' : ''}`}>
+                            <span className="icon">📈</span>
+                            <span>Reports</span>
+                        </Link>
+                    </li>
                 </ul>
 
                 {/* Ad in Sidebar */}

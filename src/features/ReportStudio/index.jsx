@@ -2,25 +2,18 @@ import { useState } from 'react'
 import WidgetPalette from './components/WidgetPalette'
 import WidgetCard from './components/WidgetCard'
 import ReportToolbar from './components/ReportToolbar'
-import { TEMPLATES } from './data/reportData'
+import { TEMPLATES, WIDGET_TYPES } from './data/reportData'
 import './styles.css'
 
 function ReportStudio() {
     // Initial state: Pre-load with "Monthly Overview"
     const [widgets, setWidgets] = useState([
         // Hardcoded initial Mock from Templates for better first impression
-        { ...importWidget('w_engagement'), uniqueId: 1 },
-        { ...importWidget('w_revenue'), uniqueId: 2 },
-        { ...importWidget('w_followers'), uniqueId: 3 },
-        { ...importWidget('w_top_posts'), uniqueId: 4 }
+        { ...(WIDGET_TYPES.find(w => w.id === 'w_engagement')), uniqueId: 1 },
+        { ...(WIDGET_TYPES.find(w => w.id === 'w_revenue')), uniqueId: 2 },
+        { ...(WIDGET_TYPES.find(w => w.id === 'w_followers')), uniqueId: 3 },
+        { ...(WIDGET_TYPES.find(w => w.id === 'w_top_posts')), uniqueId: 4 }
     ])
-
-    function importWidget(id) {
-        // Quick helper to find widget definition
-        // Real app would import directly or use a better lookup
-        const { WIDGET_TYPES } = require('./data/reportData')
-        return WIDGET_TYPES.find(w => w.id === id)
-    }
 
     const addWidget = (widgetConfig) => {
         const newWidget = {
