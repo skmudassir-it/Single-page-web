@@ -37,6 +37,12 @@ function Layout() {
                             <span>Hashtag Optimizer</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/scheduler" className={`nav-item ${location.pathname === '/scheduler' ? 'active' : ''}`}>
+                            <span className="icon">📅</span>
+                            <span>Content Scheduler</span>
+                        </Link>
+                    </li>
                     {/* Future apps placeholders */}
                     <li>
                         <div className="nav-item disabled" title="Coming Soon">
