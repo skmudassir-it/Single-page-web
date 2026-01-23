@@ -140,9 +140,46 @@
     transition: transform 0.1s;
 }
 
-.post-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+    .calendar-grid {
+        border: none;
+        background: transparent;
+    }
+
+    .week-header {
+        display: none;
+        /* Hide M T W T F S S header on mobile */
+    }
+
+    .days-grid {
+        grid-template-columns: 1fr;
+        /* Stack days vertically */
+        gap: 10px;
+    }
+
+    .day-cell {
+        min-height: auto;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--bg-card);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .day-number::after {
+        content: attr(data-day-name);
+        /* We need to add this attribute in JSX or just assume user knows? Better to add weekday name */
+        margin-left: 8px;
+        font-weight: 400;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    .day-content {
+        padding-left: 0;
+    }
 }
 
 .post-title {

@@ -253,9 +253,43 @@
 }
 
 @media (max-width: 768px) {
+    .optimizer-app {
+        padding-bottom: 160px;
+        /* Space for bottom nav + selected bar */
+    }
+
     .bottom-bar-wrapper {
         left: 0;
-        padding-bottom: 80px;
-        /* Space for mobile nav/layout if needed */
+        bottom: 70px;
+        /* Sit above bottom nav */
+        padding: 10px;
+    }
+
+    .selected-bar {
+        min-width: 0;
+        width: 100%;
+        padding: 10px 15px;
+        gap: 15px;
+        flex-direction: column;
+        /* Stack info and actions on very small screens? Or keep row */
+    }
+
+    .selection-info {
+        font-size: 0.9rem;
+    }
+
+    .selection-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .btn-sm {
+        flex: 1;
+        /* Stretch buttons */
+    }
+
+    .search-box-wrapper {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

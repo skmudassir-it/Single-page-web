@@ -27,6 +27,7 @@ function CalendarGrid({ currentDate, posts, onDayClick, onPostClick }) {
                             key={dayString}
                             className={`day-cell ${!isCurrentMonth ? 'other-month' : ''}`}
                             onClick={() => onDayClick(dayString)}
+                            data-day-name={format(day, 'EEEE')}
                         >
                             <span className="day-number">{format(day, 'd')}</span>
                             <div className="day-content">

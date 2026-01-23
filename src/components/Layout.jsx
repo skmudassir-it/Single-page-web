@@ -72,6 +72,34 @@ function Layout() {
                 </div>
             </nav>
 
+            {/* Mobile Bottom Nav */}
+            <nav className="bottom-nav">
+                <Link to="/" className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+                    <span className="icon">🏠</span>
+                    <span>Home</span>
+                </Link>
+                <Link to="/resizer" className={`nav-item ${location.pathname === '/resizer' ? 'active' : ''}`}>
+                    <span className="icon">🖼️</span>
+                    <span>Resizer</span>
+                </Link>
+                <Link to="/slugs" className={`nav-item ${location.pathname === '/slugs' ? 'active' : ''}`}>
+                    <span className="icon">🔗</span>
+                    <span>Slugs</span>
+                </Link>
+                <Link to="/hashtags" className={`nav-item ${location.pathname === '/hashtags' ? 'active' : ''}`}>
+                    <span className="icon">#️⃣</span>
+                    <span>Tags</span>
+                </Link>
+                <Link to="/scheduler" className={`nav-item ${location.pathname === '/scheduler' ? 'active' : ''}`}>
+                    <span className="icon">📅</span>
+                    <span>Plan</span>
+                </Link>
+                <Link to="/captions" className={`nav-item ${location.pathname === '/captions' ? 'active' : ''}`}>
+                    <span className="icon">📝</span>
+                    <span>Studio</span>
+                </Link>
+            </nav>
+
             <main className="main-content">
                 <Outlet />
             </main>
