@@ -5,6 +5,7 @@ import ImageResizer from './features/ImageResizer'
 import SlugGenerator from './features/SlugGenerator'
 import HashtagOptimizer from './features/HashtagOptimizer'
 import ContentScheduler from './features/ContentScheduler'
+import CaptionStudio from './features/CaptionStudio'
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="slugs" element={<SlugGenerator />} />
         <Route path="hashtags" element={<HashtagOptimizer />} />
         <Route path="scheduler" element={<ContentScheduler />} />
+        <Route path="captions" element={<CaptionStudio />} />
         {/* Fallback route or 404 can go here */}
         <Route path="*" element={<LandingPage />} />
       </Route>

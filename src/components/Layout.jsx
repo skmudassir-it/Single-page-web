@@ -43,6 +43,12 @@ function Layout() {
                             <span>Content Scheduler</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/captions" className={`nav-item ${location.pathname === '/captions' ? 'active' : ''}`}>
+                            <span className="icon">📝</span>
+                            <span>Caption Studio</span>
+                        </Link>
+                    </li>
                     {/* Future apps placeholders */}
                     <li>
                         <div className="nav-item disabled" title="Coming Soon">
