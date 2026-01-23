@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { PLATFORMS, MOCK_KPI, MOCK_TRENDS, MOCK_POSTS } from './data/mockData'
+import { useState, useEffect } from 'react'
+import { PLATFORMS, MOCK_POSTS } from './data/mockData' // Keep static lists
+import { api } from '../../services/db_adapter'
 import MetricCard from './components/MetricCard'
 import ChartWidget from './components/ChartWidget'
 import PostList from './components/PostList'
@@ -7,8 +8,25 @@ import './styles.css'
 
 function AnalyticsDashboard() {
     const [selectedPlatform, setSelectedPlatform] = useState('all')
+    const [data, setData] = useState(null)
+    const [loading, setLoading] = useState(true)
 
-    // Mock filtering: Shuffle/Slice data based on platform to show "change"
+    useEffect(() => {
+        // Fetch data on mount
+        async function loadData() {
+            setLoading(true)
+            const result = await api.getAnalytics()
+            setData(result)
+            setLoading(false)
+        }
+        loadData()
+    }, [])
+
+    if (loading) return <div className="analytics-app" style={{ padding: '40px' }}>Loading Insights...</div>
+
+    const { kpi, trends } = data
+
+    // Mock filtering: Shuffle/Slice mock posts to show "change"
     const displayPosts = selectedPlatform === 'all'
         ? MOCK_POSTS
         : MOCK_POSTS.slice().reverse().slice(0, 3)
@@ -41,17 +59,17 @@ function AnalyticsDashboard() {
 
             {/* KPI Overview */}
             <div className="kpi-grid">
-                <MetricCard {...MOCK_KPI.impressions} />
-                <MetricCard {...MOCK_KPI.reach} />
-                <MetricCard {...MOCK_KPI.engagementRate} />
-                <MetricCard {...MOCK_KPI.followers} />
+                <MetricCard {...kpi.impressions} />
+                <MetricCard {...kpi.reach} />
+                <MetricCard {...kpi.engagementRate} />
+                <MetricCard {...kpi.followers} />
             </div>
 
             {/* Main Content Grid */}
             <div className="charts-section">
                 <ChartWidget
                     title={chartTitle}
-                    data={MOCK_TRENDS}
+                    data={trends}
                     dataKey="reach"
                     color="#8b5cf6"
                 />
@@ -62,11 +80,10 @@ function AnalyticsDashboard() {
             <div className="charts-section" style={{ marginTop: '20px' }}>
                 <ChartWidget
                     title="Engagement Trends"
-                    data={MOCK_TRENDS}
+                    data={trends}
                     dataKey="engagement"
                     color="#10b981"
                 />
-                {/* Placeholder for future pie chart or A/B test result */}
                 <div className="connect-overlay" style={{ marginTop: 0, minHeight: '400px' }}>
                     <h3>Connect More Accounts</h3>
                     <p style={{ color: 'var(--text-muted)', margin: '10px 0' }}>

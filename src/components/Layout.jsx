@@ -1,9 +1,11 @@
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import AdUnit from './AdUnit'
+import { useAuth } from '../context/AuthContext'
 import './Layout.css'
 
 function Layout() {
     const location = useLocation()
+    const { user } = useAuth()
 
     return (
         <div className="layout-container">
@@ -92,13 +94,23 @@ function Layout() {
                         <Link to="/privacy">Privacy</Link>
                         <Link to="/terms">Terms</Link>
                     </div>
-                    <div className="user-profile">
-                        <div className="avatar">U</div>
-                        <div className="user-info">
-                            <span className="name">Creator</span>
-                            <span className="plan">Free Plan</span>
-                        </div>
-                    </div>
+                    {user ? (
+                        <Link to="/account" className="user-profile" style={{ textDecoration: 'none' }}>
+                            <div className="avatar">{user.name[0].toUpperCase()}</div>
+                            <div className="user-info">
+                                <span className="name">{user.name}</span>
+                                <span className="plan">{user.plan.toUpperCase()}</span>
+                            </div>
+                        </Link>
+                    ) : (
+                        <Link to="/auth/login" className="user-profile" style={{ textDecoration: 'none' }}>
+                            <div className="avatar">?</div>
+                            <div className="user-info">
+                                <span className="name">Guest</span>
+                                <span className="plan">Login</span>
+                            </div>
+                        </Link>
+                    )}
                 </div>
             </nav>
 
