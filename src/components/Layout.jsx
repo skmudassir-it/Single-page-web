@@ -25,6 +25,12 @@ function Layout() {
                             <span>Resizer</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/slugs" className={`nav-item ${location.pathname === '/slugs' ? 'active' : ''}`}>
+                            <span className="icon">🔗</span>
+                            <span>Slug Generator</span>
+                        </Link>
+                    </li>
                     {/* Future apps placeholders */}
                     <li>
                         <div className="nav-item disabled" title="Coming Soon">
