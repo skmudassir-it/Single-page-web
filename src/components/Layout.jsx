@@ -68,6 +68,17 @@ function Layout() {
                             <span>Community</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/assets" className={`nav-item ${location.pathname === '/assets' ? 'active' : ''}`}>
+                            <span className="icon">🗄️</span>
+                            <span>Assets</span>
+                        </Link>
+                        <li>
+                            <Link to="/reports" className={`nav-item ${location.pathname === '/reports' ? 'active' : ''}`}>
+                                <span className="icon">📈</span>
+                                <span>Reports</span>
+                            </Link>
+                        </li>
                 </ul>
 
                 {/* Ad in Sidebar */}
@@ -127,6 +138,10 @@ function Layout() {
                 <Link to="/community" className={`nav-item ${location.pathname === '/community' ? 'active' : ''}`}>
                     <span className="icon">💬</span>
                     <span>Inbox</span>
+                </Link>
+                <Link to="/assets" className={`nav-item ${location.pathname === '/assets' ? 'active' : ''}`}>
+                    <span className="icon">🗄️</span>
+                    <span>Vault</span>
                 </Link>
             </nav>
 
