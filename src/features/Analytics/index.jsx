@@ -8,8 +8,15 @@ import './styles.css'
 function AnalyticsDashboard() {
     const [selectedPlatform, setSelectedPlatform] = useState('all')
 
-    // In a real app, we would filter data based on selectedPlatform here
-    // For mock, we'll just pass the same data but maybe tweak titles
+    // Mock filtering: Shuffle/Slice data based on platform to show "change"
+    const displayPosts = selectedPlatform === 'all'
+        ? MOCK_POSTS
+        : MOCK_POSTS.slice().reverse().slice(0, 3)
+
+    // Simple conditional title
+    const chartTitle = selectedPlatform === 'all'
+        ? "Reach Growth (30 Days)"
+        : `${PLATFORMS.find(p => p.id === selectedPlatform)?.name || ''} Growth`
 
     return (
         <div className="analytics-app">
@@ -43,12 +50,12 @@ function AnalyticsDashboard() {
             {/* Main Content Grid */}
             <div className="charts-section">
                 <ChartWidget
-                    title="Reach Growth (30 Days)"
+                    title={chartTitle}
                     data={MOCK_TRENDS}
                     dataKey="reach"
                     color="#8b5cf6"
                 />
-                <PostList posts={MOCK_POSTS} />
+                <PostList posts={displayPosts} />
             </div>
 
             {/* Secondary Chart Row */}

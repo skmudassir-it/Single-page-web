@@ -11,7 +11,14 @@ function AssetVault() {
 
     const filteredAssets = MOCK_ASSETS.filter(a => {
         if (filter === 'all') return true
-        return a.type === filter
+        if (['image', 'video'].includes(filter)) return a.type === filter
+        // Check if filter is a collection ID logic (mocked by random check as data doesn't have it yet)
+        if (filter.startsWith('c')) {
+            // In real app: return a.collectionId === filter
+            // Mock: Randomly include for demo purposes based on ID + Filter char code
+            return (a.id.charCodeAt(1) + filter.charCodeAt(1)) % 2 === 0
+        }
+        return true
     })
 
     return (
