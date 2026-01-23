@@ -6,6 +6,8 @@ import SlugGenerator from './features/SlugGenerator'
 import HashtagOptimizer from './features/HashtagOptimizer'
 import ContentScheduler from './features/ContentScheduler'
 import CaptionStudio from './features/CaptionStudio'
+import AnalyticsDashboard from './features/Analytics'
+import InfluencerManager from './features/InfluencerManager'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 import './App.css'
@@ -20,6 +22,8 @@ function App() {
         <Route path="hashtags" element={<HashtagOptimizer />} />
         <Route path="scheduler" element={<ContentScheduler />} />
         <Route path="captions" element={<CaptionStudio />} />
+        <Route path="analytics" element={<AnalyticsDashboard />} />
+        <Route path="collabs" element={<InfluencerManager />} />
 
         <Route path="privacy" element={<PrivacyPolicy />} />
         <Route path="terms" element={<Terms />} />
