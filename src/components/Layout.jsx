@@ -62,6 +62,12 @@ function Layout() {
                             <span>Collabs</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/community" className={`nav-item ${location.pathname === '/community' ? 'active' : ''}`}>
+                            <span className="icon">💬</span>
+                            <span>Community</span>
+                        </Link>
+                    </li>
                 </ul>
 
                 {/* Ad in Sidebar */}
@@ -117,6 +123,10 @@ function Layout() {
                 <Link to="/collabs" className={`nav-item ${location.pathname === '/collabs' ? 'active' : ''}`}>
                     <span className="icon">🤝</span>
                     <span>Collabs</span>
+                </Link>
+                <Link to="/community" className={`nav-item ${location.pathname === '/community' ? 'active' : ''}`}>
+                    <span className="icon">💬</span>
+                    <span>Inbox</span>
                 </Link>
             </nav>
 
