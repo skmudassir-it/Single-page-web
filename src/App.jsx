@@ -6,6 +6,8 @@ import SlugGenerator from './features/SlugGenerator'
 import HashtagOptimizer from './features/HashtagOptimizer'
 import ContentScheduler from './features/ContentScheduler'
 import CaptionStudio from './features/CaptionStudio'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
 import './App.css'
 
 function App() {
@@ -18,6 +20,10 @@ function App() {
         <Route path="hashtags" element={<HashtagOptimizer />} />
         <Route path="scheduler" element={<ContentScheduler />} />
         <Route path="captions" element={<CaptionStudio />} />
+
+        <Route path="privacy" element={<PrivacyPolicy />} />
+        <Route path="terms" element={<Terms />} />
+
         {/* Fallback route or 404 can go here */}
         <Route path="*" element={<LandingPage />} />
       </Route>

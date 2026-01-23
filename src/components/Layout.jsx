@@ -1,4 +1,5 @@
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import AdUnit from './AdUnit'
 import './Layout.css'
 
 function Layout() {
@@ -49,16 +50,18 @@ function Layout() {
                             <span>Caption Studio</span>
                         </Link>
                     </li>
-                    {/* Future apps placeholders */}
-                    <li>
-                        <div className="nav-item disabled" title="Coming Soon">
-                            <span className="icon">📝</span>
-                            <span>Captions</span>
-                        </div>
-                    </li>
                 </ul>
 
+                {/* Ad in Sidebar */}
+                <div style={{ padding: '0 10px' }}>
+                    <AdUnit slotId="sidebar-slot" />
+                </div>
+
                 <div className="sidebar-footer">
+                    <div className="legal-links">
+                        <Link to="/privacy">Privacy</Link>
+                        <Link to="/terms">Terms</Link>
+                    </div>
                     <div className="user-profile">
                         <div className="avatar">U</div>
                         <div className="user-info">
