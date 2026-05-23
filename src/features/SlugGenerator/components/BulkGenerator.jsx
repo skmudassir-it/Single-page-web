@@ -41,6 +41,15 @@ function BulkGenerator({ options }) {
         link.click()
     }
 
+    const downloadTemplate = () => {
+        const template = 'title,category,date\n"My Summer Vacation",travel,2024-06-15\n"10 Tips for Better Code",tech,2024-05-20\n"Best Pasta Recipes",food,2024-07-01'
+        const blob = new Blob([template], { type: 'text/csv;charset=utf-8;' })
+        const link = document.createElement('a')
+        link.href = URL.createObjectURL(blob)
+        link.download = 'slug-template.csv'
+        link.click()
+    }
+
     const processedPreview = processSlugs().slice(0, 5)
 
     return (
@@ -49,6 +58,7 @@ function BulkGenerator({ options }) {
                 <div className="upload-box">
                     <input type="file" accept=".csv" onChange={handleFileUpload} />
                     <p>Upload CSV</p>
+                    <span className="template-link" onClick={downloadTemplate}>📥 Download Template</span>
                 </div>
                 {columns.length > 0 && (
                     <div className="column-select">

@@ -82,7 +82,6 @@ function LandingPage() {
 
     return (
         <div className="landing-page">
-            {/* ... Existing Landing Page Content ... */}
             <section className="hero-section">
                 <div className="hero-content">
                     <h1 className="hero-title">Grow your audience on social media</h1>
@@ -92,7 +91,6 @@ function LandingPage() {
                     </p>
                     <div className="hero-cta">
                         <Link to="/auth/register" className="btn-primary btn-lg">Get Started for Free</Link>
-                        <button className="btn-secondary btn-lg">Watch Video</button>
                     </div>
                     <div className="hero-note">No credit card required. Cancel anytime.</div>
                 </div>
@@ -101,7 +99,7 @@ function LandingPage() {
             {/* Same sections as before, just updating Links to Register instead of Resizer logic implies */}
             {/* Social Proof */}
             <section className="social-proof">
-                <p className="proof-label">TRUSTED BY 140,000+ PEOPLE LIKE YOU</p>
+                <p className="proof-label">TRUSTED BY 140,000+ CREATORS</p>
                 <div className="logo-grid">
                     {['Huckberry', 'Food52', 'The Sill', 'Burrow', 'HappySocks', 'DressUp'].map(brand => (
                         <div key={brand} className="brand-logo">{brand}</div>
@@ -109,7 +107,7 @@ function LandingPage() {
                 </div>
             </section>
 
-            {/* Features - Alternating Layout */}
+            {/* Features - Publishing */}
             <section className="feature-section">
                 <div className="feature-container">
                     <div className="feature-text">
@@ -127,8 +125,53 @@ function LandingPage() {
                         <Link to="/auth/register" className="btn-text">Start Scheduling →</Link>
                     </div>
                     <div className="feature-visual visual-blue">
-                        {/* Visual Placeholder */}
                         <div style={{ width: '100%', height: '100%', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '12px' }}></div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Features - Analytics */}
+            <section className="feature-section alt-bg">
+                <div className="feature-container reverse">
+                    <div className="feature-text">
+                        <div className="feature-tag">ANALYTICS</div>
+                        <h2>Track your growth</h2>
+                        <p>
+                            Monitor follower growth, engagement rates, and post performance across all your
+                            social platforms in one unified dashboard.
+                        </p>
+                        <ul className="feature-list">
+                            <li>Real-time KPI dashboards</li>
+                            <li>Cross-platform comparison</li>
+                            <li>Content performance ranking</li>
+                        </ul>
+                        <Link to="/auth/register" className="btn-text">View Analytics →</Link>
+                    </div>
+                    <div className="feature-visual visual-purple">
+                        <div style={{ width: '100%', height: '100%', background: 'rgba(168, 85, 247, 0.1)', borderRadius: '12px' }}></div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Features - Community */}
+            <section className="feature-section">
+                <div className="feature-container">
+                    <div className="feature-text">
+                        <div className="feature-tag">COMMUNITY</div>
+                        <h2>Engage your audience</h2>
+                        <p>
+                            Manage comments, DMs, and conversations from all platforms in one place.
+                            Never miss an opportunity to connect.
+                        </p>
+                        <ul className="feature-list">
+                            <li>Unified inbox for all platforms</li>
+                            <li>Saved replies for quick responses</li>
+                            <li>Sentiment tracking</li>
+                        </ul>
+                        <Link to="/auth/register" className="btn-text">Build Community →</Link>
+                    </div>
+                    <div className="feature-visual visual-pink">
+                        <div style={{ width: '100%', height: '100%', background: 'rgba(236, 72, 153, 0.1)', borderRadius: '12px' }}></div>
                     </div>
                 </div>
             </section>

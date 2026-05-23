@@ -7,6 +7,24 @@ const ThreadView = ({ thread }) => {
         )
     }
 
+    /** Simple relative-time utility (duplicated here for component self-sufficiency) */
+    const getRelativeTime = (date) => {
+        if (!date) return ''
+        const now = new Date()
+        const diffMs = now - date
+        const diffSeconds = Math.floor(diffMs / 1000)
+        const diffMinutes = Math.floor(diffSeconds / 60)
+        const diffHours = Math.floor(diffMinutes / 60)
+        const diffDays = Math.floor(diffHours / 24)
+
+        if (diffSeconds < 10) return 'Just now'
+        if (diffSeconds < 60) return `${diffSeconds}s ago`
+        if (diffMinutes < 60) return `${diffMinutes}m ago`
+        if (diffHours < 24) return `${diffHours}h ago`
+        if (diffDays < 7) return `${diffDays}d ago`
+        return date.toLocaleDateString()
+    }
+
     return (
         <div className="cm-main">
             <div className="chat-header">
@@ -21,7 +39,9 @@ const ThreadView = ({ thread }) => {
                 {thread.messages.map(msg => (
                     <div key={msg.id} className={`message-bubble ${msg.isMe ? 'sent' : 'received'}`}>
                         {msg.text}
-                        <span className="msg-time">{msg.time}</span>
+                        <span className="msg-time">
+                            {msg.createdAt ? getRelativeTime(new Date(msg.createdAt)) : msg.time}
+                        </span>
                     </div>
                 ))}
             </div>

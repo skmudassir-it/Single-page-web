@@ -8,7 +8,8 @@ export const MOCK_ASSETS = [
         dimensions: '1920x1080',
         tags: ['summer', 'hero', 'lifestyle'],
         license: 'Commercial',
-        date: '2025-05-15'
+        date: '2025-05-15',
+        collectionId: 'c1'
     },
     {
         id: 'a2',
@@ -19,7 +20,8 @@ export const MOCK_ASSETS = [
         dimensions: '2000x2000',
         tags: ['product', 'studio', 'green'],
         license: 'Owned',
-        date: '2025-06-01'
+        date: '2025-06-01',
+        collectionId: 'c2'
     },
     {
         id: 'a3',
@@ -30,7 +32,8 @@ export const MOCK_ASSETS = [
         duration: '0:15',
         tags: ['launch', 'social', 'video'],
         license: 'Owned',
-        date: '2025-06-10'
+        date: '2025-06-10',
+        collectionId: 'c1'
     },
     {
         id: 'a4',
@@ -41,7 +44,8 @@ export const MOCK_ASSETS = [
         dimensions: '4000x3000',
         tags: ['team', 'internal'],
         license: 'Internal Use',
-        date: '2025-04-22'
+        date: '2025-04-22',
+        collectionId: 'c3'
     },
     {
         id: 'a5',
@@ -52,7 +56,8 @@ export const MOCK_ASSETS = [
         dimensions: 'N/A',
         tags: ['branding', 'logo'],
         license: 'Owned',
-        date: '2025-01-01'
+        date: '2025-01-01',
+        collectionId: 'c2'
     }
 ]
 

@@ -9,34 +9,88 @@ export const PLATFORMS = [
     { id: 'linkedin', name: 'LinkedIn', icon: '💼' }
 ]
 
-// Generate 30 days of trend data
-const generateTrendData = () => {
+// Generate trend data for N days (uses a seed so same platform always gets same data)
+const generateTrendData = (days = 30, seed = 0) => {
     const data = []
-    for (let i = 29; i >= 0; i--) {
+    // Simple pseudo-random seeded by platform index so data is stable
+    let rng = seed
+    const nextRand = () => { rng = (rng * 16807 + 0) % 2147483647; return (rng - 1) / 2147483646 }
+
+    for (let i = days - 1; i >= 0; i--) {
         const date = subDays(new Date(), i)
-        // Randomish coherent data
-        const baseReach = 5000 + Math.random() * 2000
-        const baseEng = baseReach * (0.05 + Math.random() * 0.05)
+        const baseReach = 3000 + nextRand() * 4000
+        const baseEng = baseReach * (0.04 + nextRand() * 0.06)
 
         data.push({
             date: format(date, 'MMM dd'),
             fullDate: format(date, 'yyyy-MM-dd'),
             reach: Math.round(baseReach),
             engagement: Math.round(baseEng),
-            followers: 1200 + i * (5 + Math.random() * 5), // slow growth
+            followers: 800 + (days - 1 - i) * (4 + nextRand() * 6),
             impressions: Math.round(baseReach * 1.5)
         })
     }
     return data
 }
 
-export const MOCK_TRENDS = generateTrendData()
+// Pre-generate platform-specific trends (seeded for consistency)
+const MOCK_TRENDS_ALL = generateTrendData(30, 1)
+const MOCK_TRENDS_INSTAGRAM = generateTrendData(30, 42)
+const MOCK_TRENDS_TIKTOK = generateTrendData(30, 99)
+const MOCK_TRENDS_TWITTER = generateTrendData(30, 7)
+const MOCK_TRENDS_YOUTUBE = generateTrendData(30, 55)
+const MOCK_TRENDS_LINKEDIN = generateTrendData(30, 33)
+
+export const MOCK_TRENDS = MOCK_TRENDS_ALL
+
+export const MOCK_TRENDS_BY_PLATFORM = {
+    all: MOCK_TRENDS_ALL,
+    instagram: MOCK_TRENDS_INSTAGRAM,
+    tiktok: MOCK_TRENDS_TIKTOK,
+    twitter: MOCK_TRENDS_TWITTER,
+    youtube: MOCK_TRENDS_YOUTUBE,
+    linkedin: MOCK_TRENDS_LINKEDIN
+}
 
 export const MOCK_KPI = {
     impressions: { value: '45.2K', trend: 12, label: 'Impressions' },
     reach: { value: '32.1K', trend: 8, label: 'Reach' },
     engagementRate: { value: '6.4%', trend: -2, label: 'Eng. Rate' },
     followers: { value: '1,250', trend: 24, label: 'Followers' }
+}
+
+export const MOCK_KPI_BY_PLATFORM = {
+    all: { ...MOCK_KPI },
+    instagram: {
+        impressions: { value: '18.3K', trend: 15, label: 'Impressions' },
+        reach: { value: '12.5K', trend: 10, label: 'Reach' },
+        engagementRate: { value: '5.8%', trend: -3, label: 'Eng. Rate' },
+        followers: { value: '820', trend: 18, label: 'Followers' }
+    },
+    tiktok: {
+        impressions: { value: '22.1K', trend: 28, label: 'Impressions' },
+        reach: { value: '16.8K', trend: 22, label: 'Reach' },
+        engagementRate: { value: '8.2%', trend: 5, label: 'Eng. Rate' },
+        followers: { value: '340', trend: 35, label: 'Followers' }
+    },
+    twitter: {
+        impressions: { value: '1.2K', trend: -5, label: 'Impressions' },
+        reach: { value: '890', trend: -2, label: 'Reach' },
+        engagementRate: { value: '3.1%', trend: -8, label: 'Eng. Rate' },
+        followers: { value: '150', trend: 4, label: 'Followers' }
+    },
+    youtube: {
+        impressions: { value: '8.4K', trend: 6, label: 'Impressions' },
+        reach: { value: '5.6K', trend: 3, label: 'Reach' },
+        engagementRate: { value: '7.2%', trend: 1, label: 'Eng. Rate' },
+        followers: { value: '210', trend: 12, label: 'Followers' }
+    },
+    linkedin: {
+        impressions: { value: '3.2K', trend: 9, label: 'Impressions' },
+        reach: { value: '2.2K', trend: 7, label: 'Reach' },
+        engagementRate: { value: '4.8%', trend: 2, label: 'Eng. Rate' },
+        followers: { value: '95', trend: 14, label: 'Followers' }
+    }
 }
 
 export const MOCK_POSTS = [

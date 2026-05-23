@@ -8,31 +8,33 @@ function DbStatus() {
         api.checkConnection().then(setStatus)
     }, [])
 
-    if (!status) return null
+    if (!status || status.connected) return null
 
     return (
         <div style={{
             position: 'fixed',
             bottom: '10px',
             right: '10px',
-            padding: '8px 12px',
-            borderRadius: '20px',
-            fontSize: '0.8rem',
-            background: status.connected ? '#065f46' : '#991b1b', // Green or Red
-            color: 'white',
-            border: '1px solid rgba(255,255,255,0.2)',
+            padding: '4px 10px',
+            borderRadius: '12px',
+            fontSize: '0.7rem',
+            background: 'rgba(100, 116, 139, 0.15)',
+            color: 'var(--text-muted)',
+            border: '1px solid var(--border)',
             zIndex: 9999,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px'
+            gap: '6px',
+            opacity: 0.6,
+            pointerEvents: 'none'
         }}>
             <span style={{
-                width: '8px',
-                height: '8px',
+                width: '6px',
+                height: '6px',
                 borderRadius: '50%',
-                background: status.connected ? '#34d399' : '#f87171'
+                background: '#f87171'
             }}></span>
-            {status.connected ? 'Turso Connected' : 'Using Mock Data'}
+            Offline
         </div>
     )
 }

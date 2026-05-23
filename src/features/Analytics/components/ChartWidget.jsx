@@ -5,11 +5,6 @@ function ChartWidget({ title, data, dataKey = "reach", color = "#3b82f6" }) {
         <div className="chart-card">
             <div className="chart-header">
                 <h3>{title}</h3>
-                <select style={{ padding: '4px', borderRadius: '4px', background: 'var(--bg-dark)', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
-                    <option>Last 30 Days</option>
-                    <option>Last 7 Days</option>
-                    <option>Last 90 Days</option>
-                </select>
             </div>
 
             <div style={{ flex: 1, minHeight: '300px' }}>

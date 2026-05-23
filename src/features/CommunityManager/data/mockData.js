@@ -5,6 +5,10 @@ export const SAVED_REPLIES = [
     { id: '4', title: 'Hours', text: "We are open Mon-Fri from 9am to 6pm!" }
 ]
 
+// Helper to create dates relative to now for realistic timestamps
+const minutesAgo = (m) => new Date(Date.now() - m * 60 * 1000)
+const hoursAgo = (h) => new Date(Date.now() - h * 60 * 60 * 1000)
+
 export const MOCK_THREADS = [
     {
         id: 't1',
@@ -15,7 +19,7 @@ export const MOCK_THREADS = [
         sentiment: 'positive',
         timestamp: '2m ago',
         messages: [
-            { id: 'm1', sender: 'jess_pess', text: 'Love this new feature! When is it live?', isMe: false, time: '10:30 AM' }
+            { id: 'm1', sender: 'jess_pess', text: 'Love this new feature! When is it live?', isMe: false, time: '10:30 AM', createdAt: minutesAgo(2) }
         ]
     },
     {
@@ -27,9 +31,9 @@ export const MOCK_THREADS = [
         sentiment: 'negative',
         timestamp: '15m ago',
         messages: [
-            { id: 'm1', sender: 'dev_guru', text: 'My account is locked. Help pls.', isMe: false, time: '10:15 AM' },
-            { id: 'm2', sender: 'support_bot', text: 'Checking on this...', isMe: true, time: '10:16 AM' },
-            { id: 'm3', sender: 'dev_guru', text: 'Still waiting', isMe: false, time: '10:20 AM' }
+            { id: 'm1', sender: 'dev_guru', text: 'My account is locked. Help pls.', isMe: false, time: '10:15 AM', createdAt: minutesAgo(15) },
+            { id: 'm2', sender: 'support_bot', text: 'Checking on this...', isMe: true, time: '10:16 AM', createdAt: minutesAgo(14) },
+            { id: 'm3', sender: 'dev_guru', text: 'Still waiting', isMe: false, time: '10:20 AM', createdAt: minutesAgo(10) }
         ]
     },
     {
@@ -41,8 +45,8 @@ export const MOCK_THREADS = [
         sentiment: 'positive',
         timestamp: '1h ago',
         messages: [
-            { id: 'm1', sender: 'VideoFan99', text: 'Great tutorial, subbed!', isMe: false, time: '9:30 AM' },
-            { id: 'm2', sender: 'me', text: 'Thanks for subbing! 🤘', isMe: true, time: '9:45 AM' }
+            { id: 'm1', sender: 'VideoFan99', text: 'Great tutorial, subbed!', isMe: false, time: '9:30 AM', createdAt: hoursAgo(1) },
+            { id: 'm2', sender: 'me', text: 'Thanks for subbing! 🤘', isMe: true, time: '9:45 AM', createdAt: hoursAgo(1) }
         ]
     },
     {
@@ -54,7 +58,7 @@ export const MOCK_THREADS = [
         sentiment: 'neutral',
         timestamp: '3h ago',
         messages: [
-            { id: 'm1', sender: 'dance_queen', text: 'Can you do the griddy?', isMe: false, time: '7:30 AM' }
+            { id: 'm1', sender: 'dance_queen', text: 'Can you do the griddy?', isMe: false, time: '7:30 AM', createdAt: hoursAgo(3) }
         ]
     }
 ]

@@ -1,4 +1,4 @@
-function ReportToolbar({ title, onExport, onClear }) {
+function ReportToolbar({ title, onExport, onClear, onSave }) {
     return (
         <div className="rs-header">
             <h2>{title}</h2>
@@ -9,12 +9,13 @@ function ReportToolbar({ title, onExport, onClear }) {
                     <option>This Year</option>
                 </select>
                 <button className="secondary-btn" onClick={onClear}>Clear Canvas</button>
+                <button className="secondary-btn" onClick={onSave}>Save Report</button>
                 <button
                     className="primary-btn"
                     onClick={onExport}
                     style={{ background: 'var(--primary)', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px', fontWeight: '500' }}
                 >
-                    Export PDF
+                    Export HTML
                 </button>
             </div>
         </div>

@@ -130,6 +130,63 @@
     color: var(--primary);
 }
 
+.slug-length {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-left: 8px;
+    font-family: Inter, sans-serif;
+}
+
+/* Slug history */
+.slug-history {
+    margin-top: 10px;
+}
+
+.slug-history label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.history-chip {
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-family: monospace;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.history-chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Template download link */
+.template-link {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.template-link:hover {
+    opacity: 0.8;
+}
+
 /* Bulk Generator */
 .bulk-controls {
     display: flex;

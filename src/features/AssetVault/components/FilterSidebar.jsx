@@ -29,7 +29,11 @@ function FilterSidebar({ collections, activeFilter, setFilter }) {
                 <h3>Collections</h3>
                 <div className="filter-list">
                     {collections.map(col => (
-                        <div key={col.id} className="filter-item">
+                        <div
+                            key={col.id}
+                            className={`filter-item ${activeFilter === col.id ? 'active' : ''}`}
+                            onClick={() => setFilter(col.id)}
+                        >
                             <span>{col.name}</span>
                             <span className="count">{col.count}</span>
                         </div>
